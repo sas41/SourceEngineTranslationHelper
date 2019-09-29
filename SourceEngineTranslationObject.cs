@@ -15,14 +15,23 @@
 
         public override string ToString()
         {
-            string ret = $"\"{Key}\"\t\"{Value}\"";
-
-            if (Comment != "")
+            // Comment Only Line
+            if (Key == "" && Value == "" && Comment != "")
             {
-                ret = ret + $"\t//{Comment}";
+                return $"//{Comment}";
             }
-
-            return ret;
+            else if (Key == "" && Value == "" && Comment == "")
+            {
+                return "";
+            }
+            else if ((Key != "" || Value != "") && Comment == "")
+            {
+                return $"\"{Key}\"\t\"{Value}\"";
+            }
+            else
+            {
+                return $"\"{Key}\"\t\"{Value}\"\t//{Comment}";
+            }
         }
     }
 }

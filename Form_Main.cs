@@ -27,11 +27,33 @@ namespace SourceEngineTranslationHelper
             NewProject();
         }
 
+        // Toolbar buttons, in order
+        // New Project
         private void NewProjectToolStripMenuItem_Click(object sender, EventArgs e)
         {
             NewProject();
         }
+        // Import TXT
+        private void ImportTranslationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LoadTXT();
+            UpdateDataSource();
 
+            textBox_ProjectName.Text = currentTranslation.Project;
+            textBox_ProjectLanguage.Text = currentTranslation.Language;
+            UpdateTitle();
+        }
+        // Export TXT
+        private void ExportTranslationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveTXT();
+        }
+        // Import JSON
+        private void ExportJSONToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveJSON();
+        }
+        // Export JSON
         private void ImportJSONToolStripMenuItem_Click(object sender, EventArgs e)
         {
             LoadJSON();
@@ -42,15 +64,7 @@ namespace SourceEngineTranslationHelper
             UpdateTitle();
         }
 
-        private void ExportJSONToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            SaveJSON();
-        }
 
-        private void ExportTranslationToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            SaveTXT();
-        }
 
         private void TextBox_ProjectName_TextChanged(object sender, EventArgs e)
         {
@@ -65,6 +79,32 @@ namespace SourceEngineTranslationHelper
         }
 
 
+        private void LoadTXT()
+        {
+            using (OpenFileDialog dialog = new OpenFileDialog())
+            {
+                dialog.Filter = "Text (*.txt)|*.txt";
+                dialog.DefaultExt = "txt";
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    string file = File.ReadAllText(dialog.FileName);
+                    currentTranslation.Parse(file);
+                }
+            }
+        }
+        private void SaveTXT()
+        {
+            using (SaveFileDialog dialog = new SaveFileDialog())
+            {
+                dialog.Filter = "Text (*.txt)|*.txt";
+                dialog.DefaultExt = "txt";
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    string file = currentTranslation.Export();
+                    File.WriteAllText(dialog.FileName, file);
+                }
+            }
+        }
         private void LoadJSON()
         {
             using (OpenFileDialog dialog = new OpenFileDialog())
@@ -93,19 +133,6 @@ namespace SourceEngineTranslationHelper
             }
         }
 
-        private void SaveTXT()
-        {
-            using (SaveFileDialog dialog = new SaveFileDialog())
-            {
-                dialog.Filter = "Text (*.txt)|*.txt";
-                dialog.DefaultExt = "txt";
-                if (dialog.ShowDialog() == DialogResult.OK)
-                {
-                    string file = currentTranslation.Export();
-                    File.WriteAllText(dialog.FileName, file);
-                }
-            }
-        }
 
         private void UpdateDataSource()
         {
@@ -136,6 +163,7 @@ namespace SourceEngineTranslationHelper
         {
             this.Text = $"{baseTitle} - {currentTranslation.Project} ({currentTranslation.Language})";
         }
+
 
     }
 }

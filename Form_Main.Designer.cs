@@ -35,9 +35,10 @@
             this.addNewRowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripDropDownButton_File = new System.Windows.Forms.ToolStripDropDownButton();
             this.newProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.importTranslationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exportTranslationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.importJSONToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportJSONToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exportTranslationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridView_Main = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel_Main = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -83,9 +84,10 @@
             this.toolStripDropDownButton_File.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.toolStripDropDownButton_File.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newProjectToolStripMenuItem,
+            this.importTranslationToolStripMenuItem,
+            this.exportTranslationToolStripMenuItem,
             this.importJSONToolStripMenuItem,
-            this.exportJSONToolStripMenuItem,
-            this.exportTranslationToolStripMenuItem});
+            this.exportJSONToolStripMenuItem});
             this.toolStripDropDownButton_File.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton_File.Image")));
             this.toolStripDropDownButton_File.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton_File.Name = "toolStripDropDownButton_File";
@@ -95,30 +97,37 @@
             // newProjectToolStripMenuItem
             // 
             this.newProjectToolStripMenuItem.Name = "newProjectToolStripMenuItem";
-            this.newProjectToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.newProjectToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.newProjectToolStripMenuItem.Text = "New Project";
             this.newProjectToolStripMenuItem.Click += new System.EventHandler(this.NewProjectToolStripMenuItem_Click);
+            // 
+            // importTranslationToolStripMenuItem
+            // 
+            this.importTranslationToolStripMenuItem.Name = "importTranslationToolStripMenuItem";
+            this.importTranslationToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.importTranslationToolStripMenuItem.Text = "Import Translation";
+            this.importTranslationToolStripMenuItem.Click += new System.EventHandler(this.ImportTranslationToolStripMenuItem_Click);
+            // 
+            // exportTranslationToolStripMenuItem
+            // 
+            this.exportTranslationToolStripMenuItem.Name = "exportTranslationToolStripMenuItem";
+            this.exportTranslationToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.exportTranslationToolStripMenuItem.Text = "Export Translation";
+            this.exportTranslationToolStripMenuItem.Click += new System.EventHandler(this.ExportTranslationToolStripMenuItem_Click);
             // 
             // importJSONToolStripMenuItem
             // 
             this.importJSONToolStripMenuItem.Name = "importJSONToolStripMenuItem";
-            this.importJSONToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.importJSONToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.importJSONToolStripMenuItem.Text = "Import JSON";
             this.importJSONToolStripMenuItem.Click += new System.EventHandler(this.ImportJSONToolStripMenuItem_Click);
             // 
             // exportJSONToolStripMenuItem
             // 
             this.exportJSONToolStripMenuItem.Name = "exportJSONToolStripMenuItem";
-            this.exportJSONToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.exportJSONToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.exportJSONToolStripMenuItem.Text = "Export JSON";
             this.exportJSONToolStripMenuItem.Click += new System.EventHandler(this.ExportJSONToolStripMenuItem_Click);
-            // 
-            // exportTranslationToolStripMenuItem
-            // 
-            this.exportTranslationToolStripMenuItem.Name = "exportTranslationToolStripMenuItem";
-            this.exportTranslationToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
-            this.exportTranslationToolStripMenuItem.Text = "Export Translation";
-            this.exportTranslationToolStripMenuItem.Click += new System.EventHandler(this.ExportTranslationToolStripMenuItem_Click);
             // 
             // dataGridView_Main
             // 
@@ -138,6 +147,7 @@
             this.tableLayoutPanel_Main.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel_Main.Controls.Add(this.dataGridView_Main, 0, 1);
             this.tableLayoutPanel_Main.Controls.Add(this.tableLayoutPanel1, 0, 0);
+            this.tableLayoutPanel_Main.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel_Main.Location = new System.Drawing.Point(0, 25);
             this.tableLayoutPanel_Main.Name = "tableLayoutPanel_Main";
             this.tableLayoutPanel_Main.RowCount = 2;
@@ -167,6 +177,7 @@
             // 
             // textBox_ProjectLanguage
             // 
+            this.textBox_ProjectLanguage.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
             this.textBox_ProjectLanguage.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox_ProjectLanguage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_ProjectLanguage.Location = new System.Drawing.Point(505, 3);
@@ -254,6 +265,7 @@
         private System.Windows.Forms.Label label_ProjectName;
         private System.Windows.Forms.Label label_ProjectLanguage;
         private System.Windows.Forms.TextBox textBox_ProjectName;
+        private System.Windows.Forms.ToolStripMenuItem importTranslationToolStripMenuItem;
     }
 }
 
