@@ -48,8 +48,30 @@ namespace SourceEngineTranslationHelper
         {
             try
             {
+                /*
+                    Behold! Behold Mortal!
+                    The Regex of DOOM!
+                    This regex string matches:
+                        -Everything between two double-quotation marks, while including escaped double-quotes
+                        -Every comment, starting with //
+                        -Every opening and closing curly-bois.
+                    Here is the break down of it:
+
+                    Capture Type 1
+                        (?<=(?<!\\)"")  - This bit looks for a quotation mark, that is not escaped (\") before the middle bit.
+                        (.*?)           - This is the middle bit, it captures everything...
+                        (?=(?<!\\)"")   - This bit looks for a quotation mark, that is not escaped (\") after the middle bit.
+                    Capture Type 2
+                        ((?<=//)(.*))   - This bit captures everything after a (//), these are comments.
+                    Capture Type 3 and 4
+                        (\{) and (\})   - These capture opening and closing curly-bois.
+
+                    Each capture type is seperated by a "|" for a logical OR.
+                    The whole thing is in (), to represent one big filter for each line.
+
+                */
                 string qPattern = @"((?<=(?<!\\)"")(.*?)(?=(?<!\\)"")|((?<=//)(.*))|(\{)|(\}))";
-                    List<string> lines = txt.Split(new string[] { Environment.NewLine }, StringSplitOptions.None).ToList();
+                List<string> lines = txt.Split(new string[] { Environment.NewLine }, StringSplitOptions.None).ToList();
 
                 string lang = "";
                 List<SourceEngineTranslationObject> pairs = new List<SourceEngineTranslationObject>();
