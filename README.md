@@ -11,8 +11,10 @@ SETH is distributed under the MIT Liscence.
 # Usage:
 Simply start the program, it will start with an empty project
 
-Add your keys and values.
+You can either start fresh or use 'File' menu to import a JSON or ready-to-go '.txt' localisation file.
 
-When done, export as a JSON file to share it.
+Add / Change your keys and values.
 
-To use the translation file in-game, export it as a .txt file.
+When done, export as a JSON or '.txt' file to share it.
+
+The '.txt' files can be used in-game.
