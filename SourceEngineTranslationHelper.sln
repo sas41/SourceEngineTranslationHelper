@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29102.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SourceEngineTranslationHelper", "SourceEngineTranslationHelper.csproj", "{9ECBC16F-D5B8-4F2A-B54F-266D60E8413A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9ECBC16F-D5B8-4F2A-B54F-266D60E8413A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9ECBC16F-D5B8-4F2A-B54F-266D60E8413A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9ECBC16F-D5B8-4F2A-B54F-266D60E8413A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9ECBC16F-D5B8-4F2A-B54F-266D60E8413A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1E6DAE68-1AF4-45DD-91A7-E7B50ADFF387}
+	EndGlobalSection
+EndGlobal
